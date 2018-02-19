@@ -43,11 +43,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GenralObserver\Subject.cs" />
-    <Compile Include="GenralObserver\WeatherSubject.cs" />
+    <Compile Include="GenralObserver\BaseObservable.cs" />
+    <Compile Include="GenralObserver\IObservable.cs" />
+    <Compile Include="GenralObserver\WeatherObservable.cs" />
     <Compile Include="GenralObserver\WeatherObserver.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UsingDelegates\BaseObservable.cs" />
+    <Compile Include="UsingDelegates\IObservable.cs" />
+    <Compile Include="UsingDelegates\WeatherObservable.cs" />
+    <Compile Include="UsingDelegates\WeatherObserver.cs" />
+    <Compile Include="UsingDelegates\WeatherSubject.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

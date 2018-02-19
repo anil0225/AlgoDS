@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace Observer.GenralObserver
 {
-    public class WeatherSubject : Subject
+   public interface IObservable
     {
-        public string State { get; set; }
-
-        public string GetState() {
-            return State;
-        }
+        void AttachObserver(IObserver observer);
+        void DetachObserver(IObserver observer);
+        void NotifyObservers();
     }
 }

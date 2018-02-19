@@ -8,11 +8,11 @@ namespace Observer.GenralObserver
 {
     public class WeatherObserver : IObserver
     {
-        Subject _subject;
+        BaseObservable _subject;
 
         string _name;
 
-        public WeatherObserver(Subject subject, string name)
+        public WeatherObserver(BaseObservable subject, string name)
         {
             _subject = subject;
             _name = name;

@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Observer.GenralObserver
 {
-    public class Subject
+    public class BaseObservable:IObservable
     {
         private IList<IObserver> observers;
 
         public string State { get; set; }
 
-        public Subject()
+        public BaseObservable()
         {
             observers = new List<IObserver>();
         }

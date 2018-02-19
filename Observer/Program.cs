@@ -11,7 +11,7 @@ namespace Observer
         static void Main(string[] args)
         {
             #region Generic way 
-            GenralObserver.Subject weatherSubject = new GenralObserver.WeatherSubject();
+            GenralObserver.BaseObservable weatherSubject = new GenralObserver.WeatherObservable();
             weatherSubject.AttachObserver(new GenralObserver.WeatherObserver(weatherSubject, "Observer1"));
             weatherSubject.AttachObserver(new GenralObserver.WeatherObserver(weatherSubject, "Observer2"));
             weatherSubject.AttachObserver(new GenralObserver.WeatherObserver(weatherSubject, "Observer3"));
@@ -32,9 +32,18 @@ namespace Observer
 
 
             #region using Delegates and events
-
-            #region
+            Console.WriteLine("Enter new Events Weather Report");
+            UsingDelegates.BaseObservable eventBasedObservable = new UsingDelegates.WeatherObservable();
+            eventBasedObservable.WeatherChanging += (new UsingDelegates.WeatherObserver("A")).NotifyWeatherChange;
+            eventBasedObservable.WeatherChanging += (new UsingDelegates.WeatherObserver("B")).NotifyWeatherChange;
+            eventBasedObservable.WeatherChanging += (new UsingDelegates.WeatherObserver("C")).NotifyWeatherChange;
+            eventBasedObservable.WeatherChanging += (new UsingDelegates.WeatherObserver("D")).NotifyWeatherChange;
+            eventBasedObservable.UpdateWeather(Console.ReadLine());
+            Console.ReadLine();
+            #endregion
 
         }
+
+       
     }
 }
