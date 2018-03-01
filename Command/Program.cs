@@ -10,6 +10,18 @@ namespace Command
     {
         static void Main(string[] args)
         {
+            Invoker invoker = new Invoker();
+            LightReceiver light = new LightReceiver();
+            invoker.AddCommand(new RedColorCommand(light));
+            invoker.AddCommand(new SwitchCommand(light));
+            invoker.AddCommand(new SwitchCommand(light));
+            invoker.AddCommand(new YellowColorCommand(light));
+            invoker.AddCommand(new SwitchCommand(light));
+            invoker.AddCommand(new SwitchCommand(light));
+
+            invoker.ExecuteCommands();
+
+            Console.ReadLine();
         }
     }
 }
