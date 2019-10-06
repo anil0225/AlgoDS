@@ -19,6 +19,7 @@ namespace StringPermutation
     
     */
 
+   // Other way https://www.youtube.com/watch?v=iFafKAUGqrY&list=RDQMKw-qxoCFyyk&index=3
     class Program
     {
         static void Main(string[] args)
@@ -26,7 +27,7 @@ namespace StringPermutation
             //Console.WriteLine(args[0]);
 
             StringPermutationUtil sp = new StringPermutationUtil();
-            var result = sp.permute("AABC".ToCharArray());
+            var result = sp.permute("SAABC".ToCharArray());
             for (int i = 0; i < result.Count; i++)
             {
                 Console.WriteLine(result[i]);
