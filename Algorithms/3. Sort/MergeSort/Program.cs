@@ -19,20 +19,44 @@ namespace MergeSort
                 int rightPointer = start1;
                 int leftPointer = start2;
 
-                while(start1 > end1 && start2 > end2){
-                    if(input[rightPointer] > input[leftPointer]){
+                int leftArray = new int[end1 - start1];
+                int rightArray = new int[end2 - start2];
+
+                for (int i = start1; i < end1; i++)
+                {
+                    leftArray[i] = input[i];
+                }
+
+                for (int i = start2; i < end2; i++)
+                {
+                    rightArray[i] = input[i];
+                }
+
+                int pointer = start1;
+                while (start1 > end1 && start2 > end2)
+                {
+                    if (input[leftPointer] < input[rightPointer])
+                    {
+                        leftPointer++;
+                        pointer++;
+                        input[pointer] = input[leftPointer];
+
+                    }
+                    else
+                    {
+                        input[pointer] = input[rightPointer];
                         rightPointer++;
+                        pointer++;
                     }
-                    else {
-                        
-                    }
-                    if(input[rightPointer]  < input[leftPointer]){
-                        int temp = input[leftPointer];
-                        input[leftPointer] = input[rightPointer];
-                        input[leftPointer] =  input[rightPointer];
-                        leftPointer ++ ;
-                        rightPointer ++                       
-                    }
+                }
+                while(pointer < end1){
+                    input[pointer] =  input[leftPointer];
+                    leftPointer++;
+                }
+                
+                while(pointer < end2){
+                    input[pointer] =  input[rightPointer];
+                    rightPointer++;
                 }
 
                 return input;
