@@ -1,0 +1,11 @@
+C:\MyAlgoCollection\AlgoDS\Algorithms\3. Sort\MergeSort\bin\Debug\netcoreapp2.2\MergeSort.deps.json
+C:\MyAlgoCollection\AlgoDS\Algorithms\3. Sort\MergeSort\bin\Debug\netcoreapp2.2\MergeSort.runtimeconfig.json
+C:\MyAlgoCollection\AlgoDS\Algorithms\3. Sort\MergeSort\bin\Debug\netcoreapp2.2\MergeSort.runtimeconfig.dev.json
+C:\MyAlgoCollection\AlgoDS\Algorithms\3. Sort\MergeSort\bin\Debug\netcoreapp2.2\MergeSort.dll
+C:\MyAlgoCollection\AlgoDS\Algorithms\3. Sort\MergeSort\bin\Debug\netcoreapp2.2\MergeSort.pdb
+C:\MyAlgoCollection\AlgoDS\Algorithms\3. Sort\MergeSort\obj\Debug\netcoreapp2.2\MergeSort.csprojAssemblyReference.cache
+C:\MyAlgoCollection\AlgoDS\Algorithms\3. Sort\MergeSort\obj\Debug\netcoreapp2.2\MergeSort.csproj.CoreCompileInputs.cache
+C:\MyAlgoCollection\AlgoDS\Algorithms\3. Sort\MergeSort\obj\Debug\netcoreapp2.2\MergeSort.AssemblyInfoInputs.cache
+C:\MyAlgoCollection\AlgoDS\Algorithms\3. Sort\MergeSort\obj\Debug\netcoreapp2.2\MergeSort.AssemblyInfo.cs
+C:\MyAlgoCollection\AlgoDS\Algorithms\3. Sort\MergeSort\obj\Debug\netcoreapp2.2\MergeSort.dll
+C:\MyAlgoCollection\AlgoDS\Algorithms\3. Sort\MergeSort\obj\Debug\netcoreapp2.2\MergeSort.pdb
