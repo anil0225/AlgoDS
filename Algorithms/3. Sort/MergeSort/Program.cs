@@ -4,75 +4,92 @@ namespace MergeSort
 {
     class Program
     {
+        
         public class MergeSort
         {
-            public int[] Sort(int[] input, int start, int end)
+            public void Sort(int[] input, int start, int end)
             {
-                int midPointer = end - start / 2;
-                Sort(input, start, midPointer);
-                Sort(input, midPointer + 1, end);
-                Merge(input, start, end);
+
+                if (end > start)
+                {
+                    int midPointer = (start + end) / 2;
+                    Sort(input, start, midPointer);
+                    Sort(input, midPointer + 1, end);
+                    Merge(input, start, midPointer, end);
+                }
             }
 
-            public int[] Merge(int[] input, int start1, int end1, int start2, int end2)
+            public void Merge(int[] input, int start, int mid, int end)
             {
-                int rightPointer = start1;
-                int leftPointer = start2;
+                int leftArraySize = mid - start +1;
+                int rightArraySize = end - mid ;
+                int[] leftArray = new int[leftArraySize];
+                int[] rightArray = new int[rightArraySize];
+                int currentPointer = start;
+                int leftPointer = 0;
+                int rightPointer = 0;
+                int arrayPointer = start;
 
-                int leftArray = new int[end1 - start1];
-                int rightArray = new int[end2 - start2];
 
-                for (int i = start1; i < end1; i++)
+                for (int i = 0; i < leftArraySize; i++)
                 {
-                    leftArray[i] = input[i];
+                    leftArray[i] = input[start + i];
+                }
+                for (int i = 0; i < rightArraySize; i++)
+                {
+                    rightArray[i] = input[(mid + 1) + i];
                 }
 
-                for (int i = start2; i < end2; i++)
+                while (leftPointer < leftArraySize && rightPointer < rightArraySize)
                 {
-                    rightArray[i] = input[i];
-                }
-
-                int pointer = start1;
-                while (start1 > end1 && start2 > end2)
-                {
-                    if (input[leftPointer] < input[rightPointer])
+                    if (leftArray[leftPointer] < rightArray[rightPointer])
                     {
+                        input[arrayPointer] = leftArray[leftPointer];
                         leftPointer++;
-                        pointer++;
-                        input[pointer] = input[leftPointer];
-
                     }
                     else
                     {
-                        input[pointer] = input[rightPointer];
+                        input[arrayPointer] = rightArray[rightPointer];
                         rightPointer++;
-                        pointer++;
                     }
-                }
-                while(pointer < end1){
-                    input[pointer] =  input[leftPointer];
-                    leftPointer++;
-                }
-                
-                while(pointer < end2){
-                    input[pointer] =  input[rightPointer];
-                    rightPointer++;
+                    arrayPointer++;
                 }
 
-                return input;
+                while (leftPointer < leftArraySize)
+                {
+                    input[arrayPointer] = leftArray[leftPointer];
+                    leftPointer++;
+                    arrayPointer++;
+                }
+
+                while (rightPointer < rightArraySize)
+                {
+                    input[arrayPointer] = rightArray[rightPointer];
+                    rightPointer++;
+                    arrayPointer++;
+                }
+
+            }
+            public void printArray(int[] input)
+            {
+                for (int i = 0; i < input.Length; i++)
+                {
+                    Console.Write($"{input[i]},");
+                }
+
+                Console.WriteLine();
+
             }
 
         }
+
         static void Main(string[] args)
         {
             Console.WriteLine("Lets start to do the Merge Sort");
             int[] input = { 2, 4, 1, 9, 3, 66, 33, 11 };
             MergeSort sorter = new MergeSort();
-            var result = sorter.sort(input, 0, input.Length - 1);
-            for (int i = 0; i < result.Length; i++)
-            {
-                Console.Write($"{input[i]},");
-            }
+            sorter.Sort(input, 0, input.Length - 1);
+            sorter.printArray(input);
 
         }
     }
