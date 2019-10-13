@@ -8,11 +8,10 @@ namespace AllSubsets
     {
         public void Subset(int[] nums, List<List<int>> resultContainer, List<int> tempList, int start)
         {
-
             var temp = new List<int>(tempList);
             // PrintList(temp);
             resultContainer.Add(temp);
-            PrintResultSet(resultContainer);
+            // PrintResultSet(resultContainer);
             for (int i = start; i < nums.Length; i++)
             {
                 temp.Add(nums[i]);
@@ -57,6 +56,7 @@ namespace AllSubsets
             List<List<int>> resultContainer = new List<List<int>>();
             BackTracker backTracker = new BackTracker();
             backTracker.Subset(input, resultContainer, new List<int>(), 0);
+            backTracker.PrintResultSet(resultContainer);
         }
 
 
