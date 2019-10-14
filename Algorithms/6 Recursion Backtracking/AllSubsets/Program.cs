@@ -4,14 +4,23 @@ using System.Collections.Generic;
 
 namespace AllSubsets
 {
-    class BackTracker
+    // Data structures needed
+    // Result Container to hold all the arrays so List<List<int>> , Array of current Set List<int>, Actual Input int[1,2,3]
+    // Algorithm
+    // Take the input
+    // 1. Start to iterate from position 0
+    // 2. At Position 0
+    // 3. Create Temp with [1] and push it to Container
+    // 4. Iterate Sub Function (It)
+    // 5. Remove the Added Element and move cursor to Next element
+    class BackTracker 
     {
         public void Subset(int[] nums, List<List<int>> resultContainer, List<int> tempList, int start)
         {
             var temp = new List<int>(tempList);
             // PrintList(temp);
             resultContainer.Add(temp);
-            // PrintResultSet(resultContainer);
+            PrintResultSet(resultContainer);
             for (int i = start; i < nums.Length; i++)
             {
                 temp.Add(nums[i]);
