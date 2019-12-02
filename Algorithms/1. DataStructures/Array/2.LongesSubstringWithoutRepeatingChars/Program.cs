@@ -29,15 +29,15 @@ namespace _2.LongesSubstringWithoutRepeatingChars
             int i = 0;
             int maxLength = 1;
             int stringLength = input.Length;
-            Hashtable positionMapper = new Hashtable();
+            Dictionary<char,int> positionMapper = new Dictionary<char, int>();
             positionMapper.Add(input[0], 0);
             for (int j = 1; j < stringLength; j++)
             {
                 int currentMax = 0;
                 char currentChar = input[j];
-                if (positionMapper.ContainsKey(currentChar) && ((int)positionMapper[currentChar]) >= i)
+                if (positionMapper.ContainsKey(currentChar) && (positionMapper[currentChar]) >= i)
                 {
-                    i = (int)positionMapper[currentChar] + 1;
+                    i = positionMapper[currentChar] + 1;
                     currentMax = j - i + 1;
                     maxLength = Math.Max(currentMax, maxLength);
                 }
