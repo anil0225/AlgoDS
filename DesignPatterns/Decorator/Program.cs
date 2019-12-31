@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Decorator
 {
@@ -10,6 +6,31 @@ namespace Decorator
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Hello World!");
+
+            IPizza pizza = new ThinCrustPizza();
+            Console.WriteLine(pizza.GetCost());
+            Console.WriteLine(pizza.GetDescription());
+            pizza = new CheeseAddon(pizza);
+            Console.WriteLine(pizza.GetCost());
+            Console.WriteLine(pizza.GetDescription());
+            pizza = new GrilledChickenAddon(pizza);
+            Console.WriteLine(pizza.GetCost());
+            Console.WriteLine(pizza.GetDescription());
+
+            pizza = new NormalCrustPizza();
+            Console.WriteLine(pizza.GetCost());
+            Console.WriteLine(pizza.GetDescription());
+            pizza = new GrilledChickenAddon(pizza);
+            Console.WriteLine(pizza.GetCost());
+            Console.WriteLine(pizza.GetDescription());
+            pizza = new CheeseAddon(pizza);
+            Console.WriteLine(pizza.GetCost());
+            Console.WriteLine(pizza.GetDescription());
+            
+
+
+            Console.ReadLine();
         }
     }
 }
