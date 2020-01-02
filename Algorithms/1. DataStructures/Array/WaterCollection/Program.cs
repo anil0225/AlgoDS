@@ -9,9 +9,9 @@ namespace WaterCollection
         static void Main(string[] args)
         {
             int[] bars = new int[] { 0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1 };
-            Console.WriteLine($"By Bruteforce {GetWaterCollectedUsingBrutForce(bars)}");
-            Console.WriteLine($"By Dynamic {GetWaterCollectedUsingDynamic(bars)}");
-            // Console.WriteLine(GetWaterCollectedUsingStack(null));
+            // Console.WriteLine($"By Bruteforce {GetWaterCollectedUsingBrutForce(bars)}");
+            // Console.WriteLine($"By Dynamic {GetWaterCollectedUsingDynamic(bars)}");
+            Console.WriteLine(GetWaterCollectedUsingStack(bars));
         }
 
         /// 1. 3 Pointer, 1 pointer iterates 2 others find Max on right and Max on Left
@@ -54,7 +54,7 @@ namespace WaterCollection
 
             for (int k = 1; k < bars.Length; k++)
             {
-                maxLeft.Add(k, Math.Max(bars[k], (int)maxLeft[k - 1] ));
+                maxLeft.Add(k, Math.Max(bars[k], (int)maxLeft[k - 1]));
             }
 
             for (int j = bars.Length - 2; j >= 0; j--)
@@ -76,6 +76,37 @@ namespace WaterCollection
         }
 
         static int GetWaterCollectedUsingStack(int[] bars)
+        {
+            //  Iterate through the bar chart
+            // If height at the current is more, it cant be bounded, needs to be stackded
+            // Before stacking Since this can bound previous bar, find the capacity
+            // capacity = distance * Height
+            // distance = current - poppedtop
+            // height = hieght[current] - height at popped top
+
+            int result = 0;
+            Stack tops = new Stack();
+            for (int i = 0; i < bars.Length; i++)
+            {
+                while (tops.Count > 0 && bars[i] > bars[(int)tops.Peek()])
+                {
+                    int top = (int)tops.Peek();
+                    tops.Pop();
+                    if (tops.Count == 0)
+                        break;
+            
+                    Console.WriteLine($"Pointers {i}-{top}-{tops.Peek()}");
+                    int distance = i - (int)tops.Peek() - 1;
+                    int storageHeight = Math.Min(bars[i], bars[(int)tops.Peek()]) - bars[top];
+                    result += distance * storageHeight;
+                    Console.WriteLine($"{i}-{distance}-{storageHeight}-{result}");
+                }
+                tops.Push(i);
+            }
+            return result;
+        }
+
+        static int GetWaterCollectedUsingTwoPointer(int[] bars)
         {
             return 0;
         }
