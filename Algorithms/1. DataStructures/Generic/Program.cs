@@ -44,6 +44,7 @@ namespace Generic
             // Hash Table
             Hashtable ht = new Hashtable();
             ht.Add(1, 100);
+            Console.WriteLine(ht.ContainsKey(1));
             Console.WriteLine(ht[1]);
 
             // Hash Set
@@ -52,6 +53,7 @@ namespace Generic
             hs.Add(300);
             hs.Add(600);
             hs.Contains(200);
+
             Console.WriteLine(hs[200]);
 
 

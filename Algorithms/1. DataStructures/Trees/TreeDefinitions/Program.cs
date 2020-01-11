@@ -12,57 +12,117 @@ namespace TreeDefinitions
         }
     }
 
-    public class BinaryTree<T>: ICollection<T> where T:IComparable
+    public class BinaryTree<T> where T : IComparable
     {
 
         private BinaryTreeNode<T> head;
-        public BinaryTree(T rootValue){
+        private int size;
+        private Comparison<IComparable> comparer = CompareNodeValues;
+        public BinaryTree(T rootValue)
+        {
             head = new BinaryTreeNode<T>(rootValue);
+            size++;
         }
         public virtual BinaryTreeNode<T> Root
         {
             get { return head; }
         }
 
-        public int GetSize(){
+        public int count
+        {
+            get
+            {
+                return this.size;
+            }
+        }
+
+        public void Add(T nodeValue)
+        {
+            if (head.Value == null)
+            {
+                this.head = new BinaryTreeNode<T>(nodeValue);
+            }
+            else
+            {
+                this.InsertRecursive(this.Root, nodeValue);
+            }
+        }
+
+
+        public void Remove()
+        {
 
         }
 
-        public void Add(T nodeValue){
-            
+        public bool Contains()
+        {
+            return false;
         }
 
 
-        public void Remove(){
-            
+        public BinaryNode 
+
+
+        private static int CompareNodeValues(IComparable x, IComparable y)
+        {
+            return x.CompareTo(y);
         }
 
-        public bool Contains(){
+        private void InsertRecursive(BinaryTreeNode<T> currentNode, T nodeValue)
+        {
+            // If value is Greater Traverse Right
+            if (comparer((IComparable)currentNode.Value, (IComparable)nodeValue) <= 0)
+            {
+                if (currentNode.Left == null)
+                {
+                    currentNode.Left = new BinaryTreeNode<T>(nodeValue);
+                }
+                else
+                {
+                    this.InsertRecursive(currentNode.Left, nodeValue);
+                }
+            }
+            else
+            {
+                if (currentNode.Right == null)
+                {
+                    currentNode.Right = new BinaryTreeNode<T>(nodeValue);
+                }
+                else
+                {
+                    this.InsertRecursive(currentNode.Right, nodeValue);
+                }
+            }
+        }
+
+
+        private void InsertIterative()
+        {
 
         }
-        
-        private void InsertRecursive(){
+        public void Remove(T value){
 
         }
 
-        private void InsertIterative(){
-
+        private bool TraverseInorder(T value)
+        {
+            return false;
         }
 
-        private bool TraverseInorder(T){
-
+        private bool TraversePreOrder(T value)
+        {
+            return false;
         }
 
-        private bool TraversePreOrder(T) {}
-
-        private bool TraversalPostOrder(T) {
-            
+        private bool TraversalPostOrder(T value)
+        {
+            return false;
         }
 
 
     }
 
-    public class BinaryTreeNode<T> where T:IComparable
+    public class BinaryTreeNode<T> where T : IComparable
     {
         T nodeValue;
         public BinaryTreeNode(T value)
@@ -80,7 +140,7 @@ namespace TreeDefinitions
                 return this.Right == null && this.Left == null;
             }
         }
-        
+
 
     }
 }
