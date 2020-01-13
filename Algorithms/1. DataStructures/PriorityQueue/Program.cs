@@ -84,7 +84,7 @@ namespace Collections
 
                     currentCell = 2 * currentCell + 1; //move down to right child
                 }
-                else (this.GetSwapChild(currentCell) == -1)
+                else 
                 {
                     //Swap Left
                     T parentValue = storedValues[currentCell];

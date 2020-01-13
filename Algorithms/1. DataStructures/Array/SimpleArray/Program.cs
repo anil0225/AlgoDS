@@ -32,9 +32,10 @@ namespace SimpleArray
 
             Console.WriteLine("Multidimensinal Array , specify by Row/Column");
             int[,] multiArray = new int[4, 3];
-            multiArray = new int[,] { { 1, 2, 3 }, { 1, 2, 3 }, { 1, 2, 3 }, { 1, 2, 3 } };
+            multiArray = new int[,] { { 1, 2, 3 }, { 4, 5, 6 }, { 1, 2, 3 }, { 1, 2, 3 } };
             Console.WriteLine("Multidimensinal Array");
 
+         
 
         }
     }
