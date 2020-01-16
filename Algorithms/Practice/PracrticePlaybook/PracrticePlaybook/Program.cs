@@ -11,7 +11,9 @@ namespace PracrticePlaybook
             //Console.ReadLine();
             //new TopologicalSort().GetSequence();
             //new Djikstra().GetSingleSourceShortestPath();
-            new BellmanFordSSSP().GetShortestPaths();
+            //new BellmanFordSSSP().GetShortestPaths();
+            //new BinaryTreeTraversal();
+            new TreeSearches();
             Console.ReadLine();
         }
     }
