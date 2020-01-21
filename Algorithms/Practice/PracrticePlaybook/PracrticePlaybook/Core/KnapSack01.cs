@@ -39,14 +39,14 @@ namespace PracrticePlaybook
 
             for (int i = 0; i <= itemsCount; ++i)
             {
-                for (int w = 0; w <= capacity; ++w)
+                for (int currentWeight = 0; currentWeight <= capacity; ++currentWeight)
                 {
-                    if (i == 0 || w == 0)
-                        K[i, w] = 0;
-                    else if (weight[i - 1] <= w)
-                        K[i, w] = Math.Max(value[i - 1] + K[i - 1, w - weight[i - 1]], K[i - 1, w]);
+                    if (i == 0 || currentWeight == 0)
+                        K[i, currentWeight] = 0;
+                    else if (weight[i - 1] <= currentWeight)
+                        K[i, currentWeight] = Math.Max(value[i - 1] + K[i - 1, currentWeight - weight[i - 1]], K[i - 1, currentWeight]);
                     else
-                        K[i, w] = K[i - 1, w];
+                        K[i, currentWeight] = K[i - 1, currentWeight];
                 }
             }
 
